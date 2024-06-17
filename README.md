@@ -1,66 +1,31 @@
-Assem2dxf.v3 SolidWorks Macro
-Overview
-Title: Assem2dxf.v3
-Tooltip: Export Assembly as DXF
-Author: Lucas Johansson
-Year: 2024
+# Assem2dxf.v3 SolidWorks Macro
 
-This SolidWorks macro exports all sheet metal flat patterns from an assembly to DXF files, saved in a new folder named DXF within the assembly's root folder.
+## Overview
+This SolidWorks macro, `Assem2dxf.v3`, automates the process of exporting all sheet metal flat patterns from an assembly to DXF format. It creates a new folder named `DXF` in the assembly's root folder and saves each flat pattern as a separate DXF file.
 
-Features
-Automated DXF Export: Exports flat patterns for all sheet metal components in an assembly or part.
-File Naming: Customizable file naming using a template.
-Configuration Handling: Supports multiple configurations within parts and assemblies.
-Duplicate Handling: Avoids re-exporting existing DXF files if specified.
-Installation
-Download the macro file and save it to your local machine.
-Open SolidWorks and go to Tools > Macro > Run....
-Navigate to the saved macro file and select it.
-Usage
-Open the desired assembly or part document in SolidWorks.
-Run the macro using Tools > Macro > Run... and select Assem2dxf.v3.
-The macro will create a DXF folder in the root directory of the assembly and save the flat pattern DXF files there.
-Configuration
-Constants
-SKIP_EXISTING_FILES: Set to True to avoid overwriting existing DXF files.
-OUT_NAME_TEMPLATE: Template for naming output files. Tokens include:
-_FileName_: Name of the sheet metal part file.
-_FeatureName_: Name of the flat pattern feature.
-_ConfName_: Configuration name.
-_$CLPRP:Description_: Custom property Description from the cut list.
-Flat Pattern Options
-Customize the flat pattern export options using the SheetMetalOptions_e enumeration. The default options are:
+## Features
+- Export sheet metal flat patterns.
+- Include hidden edges and bend lines in DXF export.
+- Handle merged coplanar faces and include library features and forming tools.
 
-ExportBendLines
-ExportFlatPatternGeometry
-To modify, adjust the FLAT_PATTERN_OPTIONS constant.
+## Usage
+1. Open the assembly or part document in SolidWorks.
+2. Run the `Assem2dxf.v3` macro.
+3. All sheet metal flat patterns will be exported to a new `DXF` folder in the assembly's root directory.
 
-Error Handling
-The macro includes basic error handling. If an error occurs, a message box will display the error description.
+## License
+This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 
-Example Output
-If the assembly file is located at C:\Projects\MyAssembly.SLDASM and contains a sheet metal part Part1.SLDPRT with a flat pattern named Flat-Pattern1, the resulting DXF file might be named:
+You should have received a copy of the GNU General Public License along with this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
 
-C:\Projects\DXFs\Part1_Flat-Pattern1_Default_.dxf
-Code
-The full code for the macro is provided for customization and debugging purposes. Advanced users can modify the code to fit specific requirements or add additional features.
-
-License
-GNU General Public License v3.0
-This project is licensed under the GNU General Public License v3.0. For more details, see the LICENSE file.
-
-Assem2dxf.v3 SolidWorks Macro
+## Author
 © Lucas Johansson 2024
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+- **Email:** lucas@jvi-digital.com
+- **Phone:** +46 72 158 51 70
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
+## Note
+- Please ensure that SolidWorks macros are enabled in your SolidWorks environment to run this macro.
+- This macro assumes that SolidWorks is configured properly and the necessary permissions are granted for file operations.
+- See the readme HTML file for full details
+- Feel free to reach out if something isn't working or if you have any ideas for improvement
