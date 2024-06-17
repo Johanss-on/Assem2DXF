@@ -9,6 +9,8 @@ This SolidWorks macro, `Assem2dxf.v3`, automates the process of exporting all sh
 - Handle merged coplanar faces and include library features and forming tools.
 
 ## Usage
+* See the ReadMe HTMl file first for the full version. TLDR;
+
 1. Open the assembly or part document in SolidWorks.
 2. Run the `Assem2dxf.v3` macro.
 3. All sheet metal flat patterns will be exported to a new `DXF` folder in the assembly's root directory.
