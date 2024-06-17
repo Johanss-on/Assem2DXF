@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assem2dxf.v3 SolidWorks Macro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        pre {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            background: #ecf0f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assem2dxf.v3 SolidWorks Macro</h1>
+
+    <h2>Overview</h2>
+    <p><strong>Title</strong>: Assem2dxf.v3<br>
+    <strong>Tooltip</strong>: Export Assembly as DXF<br>
+    <strong>Author</strong>: Lucas Johansson<br>
+    <strong>Year</strong>: 2024</p>
+    <p>This SolidWorks macro exports all sheet metal flat patterns from an assembly to DXF files, saved in a new folder named <code>DXF</code> within the assembly's root folder.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li><strong>Automated DXF Export</strong>: Exports flat patterns for all sheet metal components in an assembly or part.</li>
+        <li><strong>File Naming</strong>: Customizable file naming using a template.</li>
+        <li><strong>Configuration Handling</strong>: Supports multiple configurations within parts and assemblies.</li>
+        <li><strong>Duplicate Handling</strong>: Avoids re-exporting existing DXF files if specified.</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <ol>
+        <li>Download the macro file and save it to your local machine.</li>
+        <li>Open SolidWorks and go to <code>Tools > Macro > Run...</code>.</li>
+        <li>Navigate to the saved macro file and select it.</li>
+    </ol>
+
+    <h2>Usage</h2>
+    <ol>
+        <li>Open the desired assembly or part document in SolidWorks.</li>
+        <li>Run the macro using <code>Tools > Macro > Run...</code> and select <code>Assem2dxf.v3</code>.</li>
+        <li>The macro will create a <code>DXF</code> folder in the root directory of the assembly and save the flat pattern DXF files there.</li>
+    </ol>
+
+    <h2>Configuration</h2>
+    <h3>Constants</h3>
+    <ul>
+        <li><strong>SKIP_EXISTING_FILES</strong>: Set to <code>True</code> to avoid overwriting existing DXF files.</li>
+        <li><strong>OUT_NAME_TEMPLATE</strong>: Template for naming output files. Tokens include:
+            <ul>
+                <li><code>_FileName_</code>: Name of the sheet metal part file.</li>
+                <li><code>_FeatureName_</code>: Name of the flat pattern feature.</li>
+                <li><code>_ConfName_</code>: Configuration name.</li>
+                <li><code>_$CLPRP:Description_</code>: Custom property <code>Description</code> from the cut list.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Flat Pattern Options</h3>
+    <p>Customize the flat pattern export options using the <code>SheetMetalOptions_e</code> enumeration. The default options are:</p>
+    <ul>
+        <li><code>ExportBendLines</code></li>
+        <li><code>ExportFlatPatternGeometry</code></li>
+    </ul>
+    <p>To modify, adjust the <code>FLAT_PATTERN_OPTIONS</code> constant.</p>
+
+    <h2>Error Handling</h2>
+    <p>The macro includes basic error handling. If an error occurs, a message box will display the error description.</p>
+
+    <h2>Example Output</h2>
+    <p>If the assembly file is located at <code>C:\Projects\MyAssembly.SLDASM</code> and contains a sheet metal part <code>Part1.SLDPRT</code> with a flat pattern named <code>Flat-Pattern1</code>, the resulting DXF file might be named:</p>
+    <pre>C:\Projects\DXFs\Part1_Flat-Pattern1_Default_.dxf</pre>
+
+    <h2>Code</h2>
+    <p>The full code for the macro is provided for customization and debugging purposes. Advanced users can modify the code to fit specific requirements or add additional features.</p>
+
+    <h2>License</h2>
+    <h3>GNU General Public License v3.0</h3>
+    <p>This project is licensed under the GNU General Public License v3.0. For more details, see the <a href="https://www.gnu.org/licenses/gpl-3.0.html">LICENSE</a> file.</p>
+    <pre><code>Assem2dxf.v3 SolidWorks Macro
+© Lucas Johansson 2024
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.</code></pre>
+</body>
+</html>
