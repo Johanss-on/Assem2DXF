@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setting Up a SOLIDWORKS Macro with GUI</title>
+    <style id="theme">
+        body {font-family: Arial, sans-serif; background-color: #333; color: #f8f8f8;}
+        h1 {color: #f8f8f8;}
+        h2 {color: #ccc;}
+        pre {background-color: #444; padding: 10px; color: #f8f8f8;}
+        .content {
+            display: none;  /* Hide all content by default */
+        }
+        .content.active {
+            display: block; /* Show content when 'active' class is added */
+        }
+    </style>
+    <script>
+        function switchLanguage(lang) {
+            var contents = document.getElementsByClassName('content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            document.getElementById(lang).classList.add('active');
+        }
+
+        function switchTheme(theme) {
+    var body = document.body;
+    var h1 = document.querySelector('h1');
+    var h2 = document.querySelector('h2');
+    var pre = document.querySelectorAll('pre');
+
+    if (theme === 'dark') {
+        body.style.backgroundColor = '#333';
+        body.style.color = '#f8f8f8';
+        h1.style.color = '#f8f8f8';
+        h2.style.color = '#ccc';
+        pre.forEach(function(element) {
+            element.style.backgroundColor = '#444';
+            element.style.color = '#f8f8f8';
+        });
+    } else {
+        body.style.backgroundColor = '#fff';
+        body.style.color = '#333';
+        h1.style.color = '#333';
+        h2.style.color = '#666';
+        pre.forEach(function(element) {
+            element.style.backgroundColor = '#f5f5f5';
+            element.style.color = '#333';
+        });
+    }
+}
+
+    </script>
+</head>
+<body>
+    <button onclick="switchLanguage('english')">English</button>
+    <button onclick="switchLanguage('swedish')">Swedish</button>
+    <button onclick="switchTheme('dark')">Dark Mode</button>
+    <button onclick="switchTheme('light')">Light Mode</button>
+
+    <!-- English Content -->
+<div id="english" class="content active">
+    <h1>Setting Up a SOLIDWORKS Macro with GUI</h1>
+    <h2>Step 1: Open SOLIDWORKS</h2>
+    <p>Start by opening SOLIDWORKS on your computer.</p>
+    <h2>Step 2: Open VBA Editor</h2>
+    <p>Once SOLIDWORKS is open, you can access the VBA (Visual Basic for Applications) editor by pressing Alt + F11 on your keyboard.</p>
+    <h2>Step 3: Insert a New Module</h2>
+    <p>In the VBA editor, go to Insert > Module to create a new module. This is where you will paste the macro code.</p>
+    <h2>Step 4: Copy and Paste the Macro Code</h2>
+    <p>Copy the macro code from the website you provided earlier. Go back to the VBA editor and paste the code into the new module you just created.</p>
+    <h2>Step 5: Insert a New UserForm</h2>
+    <p>In the VBA editor, go to Insert > UserForm to create a new UserForm. This will serve as the main window of your GUI.</p>
+    <h2>Step 6: Add Controls to the UserForm</h2>
+    <p>With the UserForm selected, go to View > Toolbox to open the Toolbox. From the Toolbox, you can add controls to the UserForm. For this GUI, you will need a Label, a TextBox, and a CommandButton. To add a control, simply click on it in the Toolbox and then click on the UserForm where you want to place it.</p>
+    <h2>Step 7: Configure the Controls</h2>
+    <p>Once you've added the controls, you can configure them by changing their properties in the Properties window. For the Label, change the Caption property to "Output Directory:". For the TextBox, change the Name property to "txtOutputDir". This will be used to get the output directory from the user. For the CommandButton, change the Caption property to "Run Macro". This button will be used to run the macro.</p>
+    <h2>Step 8: Write the Button Click Event Handler</h2>
+    <p>Double-click on the CommandButton to open the Code window. In the Code window, write the event handler for the button click event. This is where you put the code to run the macro when the button is clicked.</p>
+    <pre>
+    Private Sub CommandButton1_Click()
+        ' Get the output directory from the text box
+        Dim outputDir As String
+        outputDir = UserForm1.Controls("txtOutputDir").Value
+
+        ' Run the macro with the specified output directory
+        ' ...
+    End Sub
+    </pre>
+    <h2>Step 9: Show the UserForm</h2>
+    <p>Finally, you need to show the UserForm when the macro is run. You can do this by adding the following code to the module:</p>
+    <pre>
+    Sub ShowGUI()
+        UserForm1.Show
+    End Sub
+    </pre>
+    <h2>Step 10: Run the Macro</h2>
+    <p>You can now run the macro by pressing F5 or by going to Run > Run Sub/UserForm.</p>
+</div>
+
+  <!-- Swedish Content -->
+<div id="swedish" class="content">
+    <h1>Att ställa in en SOLIDWORKS-makro med GUI</h1>
+    <h2>Steg 1: Öppna SOLIDWORKS</h2>
+    <p>Börja med att öppna SOLIDWORKS på din dator.</p>
+    <h2>Steg 2: Öppna VBA Editor</h2>
+    <p>När SOLIDWORKS är öppet kan du komma åt VBA (Visual Basic for Applications) redigeraren genom att trycka på Alt + F11 på ditt tangentbord.</p>
+    <h2>Steg 3: Infoga en ny modul</h2>
+    <p>I VBA-redigeraren går du till Infoga > Modul för att skapa en ny modul. Detta är där du kommer att klistra in makrokoden.</p>
+    <h2>Steg 4: Kopiera och klistra in makrokoden</h2>
+    <p>Kopiera makrokoden från webbplatsen du tillhandahöll tidigare. Gå tillbaka till VBA-redigeraren och klistra in koden i den nya modulen du just skapade.
+	<h2>Steg 5: Infoga en ny UserForm</h2>
+    <p>I VBA-redigeraren går du till Infoga > UserForm för att skapa en ny UserForm. Detta kommer att fungera som huvudfönstret för ditt GUI.</p>
+    <h2>Steg 6: Lägg till kontroller i UserForm</h2>
+    <p>Med UserForm vald går du till Visa > Verktygslåda för att öppna verktygslådan. Från verktygslådan kan du lägga till kontroller i UserForm. För detta GUI behöver du en etikett, en textruta och en kommandoknapp. För att lägga till en kontroll klickar du helt enkelt på den i verktygslådan och sedan klickar du på UserForm där du vill placera den.</p>
+    <h2>Steg 7: Konfigurera kontrollerna</h2>
+    <p>När du har lagt till kontrollerna kan du konfigurera dem genom att ändra deras egenskaper i egenskapsfönstret. För etiketten ändrar du egenskapen Bildtext till "Output Directory:". För textrutan ändrar du egenskapen Namn till "txtOutputDir". Detta kommer att användas för att få utdatakatalogen från användaren. För kommandoknappen ändrar du egenskapen Bildtext till "Run Macro". Denna knapp kommer att användas för att köra makrot.</p>
+    <h2>Steg 8: Skriv händelsehanteraren för knappklick</h2>
+    <p>Dubbelklicka på kommandoknappen för att öppna kodfönstret. I kodfönstret skriver du händelsehanteraren för knappklickhändelsen. Detta är där du lägger koden för att köra makrot när knappen klickas.</p>
+    <pre>
+    Private Sub CommandButton1_Click()
+        ' Hämta utdatakatalogen från textrutan
+        Dim outputDir As String
+        outputDir = UserForm1.Controls("txtOutputDir").Value
+
+        ' Kör makrot med den angivna utdatakatalogen
+        ' ...
+    End Sub
+    </pre>
+    <h2>Steg 9: Visa UserForm</h2>
+    <p>Slutligen behöver du visa UserForm när makrot körs. Du kan göra detta genom att lägga till följande kod till modulen:</p>
+    <pre>
+    Sub ShowGUI()
+        UserForm1.Show
+    End Sub
+    </pre>
+    <h2>Steg 10: Kör makrot</h2>
+    <p>Du kan nu köra makrot genom att trycka på F5 eller genom att gå till Kör > Kör Sub/UserForm.</p>
+</div>
+
+    <!-- Add more languages here -->
+</body>
+</html>
